@@ -8,13 +8,12 @@ jobs:
         - master
     steps:
       - add_ssh_keys:
-          # 公钥的指纹
           fingerprints:
             - "46:57:e9:55:14:5a:4b:e3:b5:ba:7b:03:fb:15:a1:88"
       - checkout
       - run:
-        name: Install
-        command: npm install
+          name: Install
+          command: npm install
       - run:
-        name: Build
-        command: npm run build
+          name: Build
+          command: npm run build
