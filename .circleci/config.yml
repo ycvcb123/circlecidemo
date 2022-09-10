@@ -3,6 +3,18 @@ jobs:
   build:
     docker:
       - image: circleci/node:10
+    branches:
+      only:
+        - master
     steps:
-      - run: echo "a first hello"
-      - run: npm -v
+      - add_ssh_keys:
+          # 公钥的指纹
+          fingerprints:
+            - "46:57:e9:55:14:5a:4b:e3:b5:ba:7b:03:fb:15:a1:88"
+      - checkout
+      - run:
+        name: Install
+        command: npm install
+      - run:
+        name: Build
+        command: npm run build
