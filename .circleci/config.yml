@@ -10,10 +10,30 @@ jobs:
       - add_ssh_keys:
           fingerprints:
             - "46:57:e9:55:14:5a:4b:e3:b5:ba:7b:03:fb:15:a1:88"
+
       - checkout
+
+      - restore_cache:
+          keys:
+            - dependy-winsonye
+
       - run:
           name: Install
           command: npm install
+
+      - save_cache:
+          paths:
+            - node_modules
+          key: dependy-winsonye
+
       - run:
           name: Build
           command: npm run build
+
+      - run:
+          name: prepare shell commands
+          command: chmod +x scripts/deploy.sh
+
+      - run:
+          name: run deploy to github pages
+          command: ./scripts/deploy.sh
