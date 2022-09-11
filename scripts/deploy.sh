@@ -5,7 +5,7 @@ set -e
 
 # 当前的工作路径
 pwd
-remote=${git config remote.origin.url}
+remote=$(git config remote.origin.url)
 
 echo 'remote is: '$remote
 
