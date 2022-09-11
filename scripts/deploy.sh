@@ -52,5 +52,5 @@ git push --force --quiet origin  gh-pages
 cd ..
 rm -rf gh-pages-branch
 
-echo "Finished Deployment!"
+echo "Finished Deployment!！！！"
 
