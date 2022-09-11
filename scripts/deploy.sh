@@ -32,7 +32,7 @@ if git rev-parse --verify origin/gh-pages >/dev/null 2>&1; then
 else 
     # https://im.shellj.com/2020/04/clean-git-history.html (orphan)
     git checkout --orphan gh-pages
-
+fi
 
 # 把构建好的文件目录给拷贝进来
 cp -a "../${siteSource}/." .
@@ -52,4 +52,5 @@ git push --force --quiet origin  gh-pages
 cd ..
 rm -rf gh-pages-branch
 
-echo "finished deployment!!!"
+echo "Finished Deployment!"
+
