@@ -12,11 +12,11 @@ jobs:
             - "5a:6e:cb:0f:00:3b:bf:00:fa:8c:72:0a:30:68:d5:23"
       - checkout
       - run:
-        name: install
-        command: npm install
+          name: Install
+          command: npm install
       - run:
-        name: build
-        command: npm run build
+          name: Build
+          command: npm run build
 # version: 2
 # jobs:
 #   build:
