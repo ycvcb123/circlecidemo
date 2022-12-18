@@ -16,7 +16,8 @@ jobs:
       only:
         - main
     steps:
-      - add_ssh_keys: #通过什么样的方式拉取代码
+      #通过什么样的方式拉取代码
+      - add_ssh_keys:
           fingerprints:
             - "5a:6e:cb:0f:00:3b:bf:00:fa:8c:72:0a:30:68:d5:23"
       - checkout
@@ -25,7 +26,7 @@ jobs:
       - run:
         name: install
         command: npm install
-       - run:
+      - run:
         name: build
         command: npm run build
 # version: 2
