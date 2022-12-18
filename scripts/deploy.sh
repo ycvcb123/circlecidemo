@@ -31,7 +31,7 @@ if git rev-parse --verify origin/gh-pages >/dev/null 2>&1; then
     git rm -rf .
 else 
     # https://im.shellj.com/2020/04/clean-git-history.html (orphan)
-    git checkout --orphan gh-pages
+    git checkout gh-pages
 fi
 
 # 把构建好的文件目录给拷贝进来
