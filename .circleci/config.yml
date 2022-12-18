@@ -11,12 +11,31 @@ jobs:
           fingerprints:
             - "5a:6e:cb:0f:00:3b:bf:00:fa:8c:72:0a:30:68:d5:23"
       - checkout
+
+      - restore_cache:
+          keys:
+            - dependy-winsonye
+
       - run:
           name: Install
           command: npm install
+
+      - save_cache:
+          paths:
+            - node_modules
+          key: dependy-winsonye
+
       - run:
           name: Build
           command: npm run build
+
+      - run:
+          name: prepare shell commands
+          command: chmod +x scripts/deploy.sh
+
+      - run:
+          name: run deploy to github pages
+          command: ./scripts/deploy.sh
 # version: 2
 # jobs:
 #   build:
