@@ -26,12 +26,14 @@ echo 'siteSource is: '$siteSource
 
 # 切换到gh-pages分支
 if git rev-parse --verify origin/gh-pages >/dev/null 2>&1; then
-    git checkout origin/gh-pages
+    # git checkout origin/gh-pages
     # 删除旧的文件内容
-    git rm -rf .
+    # git rm -rf .
+    git push origin --delete gh-pages
+    git checkout --orphan gh-pages
 else 
     # https://im.shellj.com/2020/04/clean-git-history.html (orphan)
-    git checkout gh-pages
+    git checkout --orphan gh-pages
 fi
 
 # 把构建好的文件目录给拷贝进来
